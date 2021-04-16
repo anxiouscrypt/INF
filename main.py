@@ -24,10 +24,6 @@ print('''
 	''')
 
 
-
-L = instaloader.Instaloader()
-
-
 # parse arguments and get account name and percentage of followers to be extracted
 
 ap = argparse.ArgumentParser()
@@ -48,19 +44,15 @@ if args["account"]:
 # Get Login Credentials
 
 login_username = input("[WELCOME]: Enter the Username you would like to login with:")
-
 time.sleep(2)
-
 login_password = getpass.getpass("[SECURE]: Enter your Password:")
 
 # Login or load session
 
+L = instaloader.Instaloader()
 print('[INFO]: Logging in..')
-
 L.login(login_username, login_password)        # (login)
-
 print('[INFO]: Logged in')
-
 time.sleep(2)
 
 
