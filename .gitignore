@@ -1,2 +1,5 @@
 *.txt
+.vscode
+__pycache__
+.idea
 
