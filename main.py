@@ -3,8 +3,7 @@ import instaloader
 import argparse
 import time
 import getpass
-import library.functions as f
-
+from library.functions import *
 
 
 # Set Variables
@@ -28,10 +27,10 @@ def welcome():
   ------ ------  |      |  |
 
 
-    Version: 2.0
-    @anxiouscrypt
+		Version: 2.0
+		anxiouscrypt
 
-  ''')
+	''')
 
 
 # Extracts a lists of followers from the specified 'targetAccount'
@@ -110,19 +109,20 @@ args = vars(ap.parse_args())
 if args["account"]:
     targetAccount = format(args["account"])
 
+# ---------------------------------------------------------------------------------------------------------------
 
+welcome()
 authenticate()
-
 
 followers = get_followers()
 if args["followers"]:
-    f.save(followers, 's', targetAccount)
+    save(followers, 's', targetAccount)
 
 following = get_following()
 if args["following"]:
-    f.save(following, 'g', targetAccount)
+    save(following, 'g', targetAccount)
 
 
-f.save(extract_accounts(following, followers), 'r', targetAccount)
+save(extract_accounts(following, followers), 'r', targetAccount)
 
 # END
